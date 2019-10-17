@@ -1,7 +1,7 @@
 import 'ts-polyfill'
 import { Component, render, h } from 'preact'
 import { Provider, connect } from 'preact-redux'
-import store, { asyncSubmit } from '../../react/src/reduxStore'
+import store, { AppState, asyncSubmit } from '../../react/src/reduxStore'
 import TODO from './Todo'
 import { IState, ITodoData, getHoursMinutesSecondsFromString } from '../../shared/initialState'
 import '../../shared/main.scss'
@@ -86,16 +86,18 @@ const mapDispatchToProps = (dispatch: any) => ({
     setTime: (val: string) => { dispatch({ type: 'setTime', payload: val }) }
 })
 
-// @ts-ignore
-const AppConnected = connect(mapStateToProps, mapDispatchToProps)(App)
-
-
-
+// NOTE: wasn't able to hook up Provider from preact-redux, problems inside preact-context lib
 const rootElement = document.getElementById("mount") || document.body
-render(
-    <Provider store={store}>
-        <AppConnected />
-    </Provider>,
-    rootElement 
-)
+const renderApp = (state: AppState) => {
+    const props = { ...mapDispatchToProps(store.dispatch), ...mapStateToProps(state) }
+    return render(
+        <App {...props} />,
+        rootElement
+    )
+}
+
+store.subscribe(() => renderApp(store.getState()));
+renderApp(store.getState());
+
+
 

@@ -54,4 +54,8 @@ const store = createStore(baseReducer, applyMiddleware(thunk, storeSaver, logger
 let time = localStorage.getItem('storedTime') || InitialState.time
 store.dispatch({ type: 'setTime', payload: time })
 
+const appState = store.getState()
+export type Store = typeof store
+export type AppState = typeof appState
+
 export default store;
