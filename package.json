@@ -1,0 +1,41 @@
+{
+  "name": "framework-comparison",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "npx serve",
+    "dev_wp": "webpack --mode=development --config=webpack.config.js --progress --watch",
+    "prod_wp": "webpack --mode=production --config=webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rematch/core": "^1.2.0",
+    "@types/react": "^16.9.6",
+    "@types/react-dom": "^16.9.2",
+    "@types/react-redux": "^7.1.4",
+    "@types/redux": "^3.6.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "redux-thunk": "^2.3.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "mobx": "^5.14.0",
+    "mobx-react": "^6.1.4",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4"
+  }
+}
