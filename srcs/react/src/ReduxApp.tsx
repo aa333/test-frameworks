@@ -1,10 +1,11 @@
+import 'ts-polyfill'
 import React, { Dispatch } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider, connect } from 'react-redux'
-import store, { asyncSubmit } from 'redux/reduxStore'
+import store, { asyncSubmit } from './reduxStore'
 import TODO from './Todo'
-import { IState, ITodoData, getHoursMinutesSecondsFromString } from 'initialState'
-import 'main.scss'
+import { IState, ITodoData, getHoursMinutesSecondsFromString } from '../../shared/initialState'
+import '../../shared/main.scss'
 
 export interface IProps {
   time: string,

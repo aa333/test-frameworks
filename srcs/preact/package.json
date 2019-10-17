@@ -1,0 +1,32 @@
+{
+  "name": "framework-comparison",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode=development --config=webpack.config.js --progress --watch",
+    "build_dev": "webpack --mode=development --config=webpack.config.js",
+    "build_prod": "webpack --mode=production --config=webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 11"
+  ],
+  "devDependencies": {
+    "@rematch/core": "^1.2.0",
+    "@types/react-redux": "^7.1.4",
+    "@types/redux": "^3.6.0",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "preact": "^10.0.0",
+    "preact-context": "^1.1.4",
+    "preact-redux": "^2.1.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "ts-polyfill": "^3.5.3"
+  }
+}

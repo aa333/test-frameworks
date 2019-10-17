@@ -1,9 +1,10 @@
-import { Component, render } from 'preact'
-import { Provider, connect } from 'react-redux'
-import store, { asyncSubmit } from '../redux/reduxStore'
+import 'ts-polyfill'
+import { Component, render, h } from 'preact'
+import { Provider, connect } from 'preact-redux'
+import store, { asyncSubmit } from '../../react/src/reduxStore'
 import TODO from './Todo'
-import { IState, ITodoData, getHoursMinutesSecondsFromString } from '../initialState'
-import 'main.scss'
+import { IState, ITodoData, getHoursMinutesSecondsFromString } from '../../shared/initialState'
+import '../../shared/main.scss'
 
 export interface IProps {
     time: string,
@@ -27,17 +28,18 @@ class App extends Component<IProps, { error?: string, }> {
         this.onTimestampChange = this.onTimestampChange.bind(this)
     }
 
-    onTodoChange(event: React.ChangeEvent<HTMLInputElement>) {
-        this.props.todoChange(parseInt(event.target.dataset['id'] || '0'), event.target.checked)
+    onTodoChange(event: Event) {
+        let input = event.target as HTMLInputElement
+        this.props.todoChange(parseInt(input.dataset['id'] || '0'), input.checked)
     }
 
-    onTimestampChange(event: React.ChangeEvent<HTMLInputElement>) {
+    onTimestampChange(event: Event) {
         this.setState({ error: '' })
-        this.props.setTime(event.target.value)
+        this.props.setTime((event.target as HTMLInputElement).value)
     }
 
-    onSelectedItemChange(event: React.ChangeEvent<HTMLInputElement>) {
-        this.props.setSelectedItem(event.target.value)
+    onSelectedItemChange(event: Event) {
+        this.props.setSelectedItem((event.target as HTMLInputElement).value)
     }
 
     onSubmit() {
@@ -89,11 +91,11 @@ const AppConnected = connect(mapStateToProps, mapDispatchToProps)(App)
 
 
 
-const rootElement = document.getElementById("mount")
+const rootElement = document.getElementById("mount") || document.body
 render(
     <Provider store={store}>
         <AppConnected />
     </Provider>,
-    rootElement
+    rootElement 
 )
 

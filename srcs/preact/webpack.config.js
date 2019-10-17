@@ -3,14 +3,12 @@ const webpack = require('webpack')
 const fs = require('fs')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const TSConfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (env, options) => {
   const devMode = options.mode === 'development'
   const config = {
     entry: {
-      'reactRedux/index': './react/ReduxApp.tsx',
-      'reactRematch/index': './react/RematchApp.tsx'
+      'preactRedux/index': './ReduxApp.tsx',
     },
     resolveLoader: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules']
@@ -52,14 +50,13 @@ module.exports = (env, options) => {
       plugins: [new TSConfigPathsPlugin()]
     },
     output: {
-      filename: '[name].js'
+      filename: '[name].js',
+      path: path.resolve(__dirname, '../../dist')
     },
     plugins: [
       new CopyWebpackPlugin([
-        { from: 'index.html', to: 'reactRedux/index.html' },
-        { from: 'index.html', to: 'reactRematch/index.html' },
-        { from: 'index.html', to: 'preactRedux/index.html' },
-      ]),
+        { from: '../../shared/index.html', to: 'preactRedux/index.html' },
+      ])
     ]
   }
 

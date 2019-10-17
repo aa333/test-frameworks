@@ -1,6 +1,6 @@
 import { createStore, AnyAction, Middleware, applyMiddleware, Dispatch } from 'redux';
 import thunk from 'redux-thunk';
-import InitialState, { delay } from 'initialState';
+import InitialState, { delay } from '../../shared/initialState';
 
 const logger: Middleware = store => next => action => {
   console.log('dispatching', action)

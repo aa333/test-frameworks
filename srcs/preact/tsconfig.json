@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
         "sourceMap": true,
         "baseUrl": "./src",
         "strict": true,
@@ -11,6 +10,7 @@
         "forceConsistentCasingInFileNames":true,
         "target": "es5",
         "jsx": "react",
+        "jsxFactory": "h",
         "lib": [
             "dom",
             "dom.iterable",
@@ -31,7 +31,6 @@
         "./src/**/*"
     ],
     "exclude": [
-        "./src/preact/**/*",
         "node_modules"
     ]
 }

@@ -1,5 +1,5 @@
 import { init, Middleware, createModel } from '@rematch/core'
-import InitialState, { delay, IState } from 'initialState';
+import InitialState, { delay, IState } from '../../shared/initialState';
 
 const logger: Middleware = store => next => action => {
   console.log('dispatching', action)

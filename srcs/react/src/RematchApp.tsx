@@ -1,10 +1,11 @@
+import 'ts-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider, connect } from 'react-redux'
-import store, { AppState } from 'rematch/rematchStore'
+import store, { AppState } from './rematchStore'
 import TODO from './Todo'
-import { ITodoData, getHoursMinutesSecondsFromString } from 'initialState'
-import 'main.scss'
+import { ITodoData, getHoursMinutesSecondsFromString } from '../../shared/initialState'
+import '../../shared/main.scss'
 
 export interface IProps {
   time: string,
