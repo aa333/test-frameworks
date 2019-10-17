@@ -10,12 +10,19 @@
   },
   "author": "",
   "license": "ISC",
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 11"
+  ],
   "devDependencies": {
     "@rematch/core": "^1.2.0",
     "@types/react": "^16.9.6",
     "@types/react-dom": "^16.9.2",
     "@types/react-redux": "^7.1.4",
     "@types/redux": "^3.6.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "browserslist": "^4.7.0",
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
@@ -33,9 +40,11 @@
   "dependencies": {
     "mobx": "^5.14.0",
     "mobx-react": "^6.1.4",
+    "preact": "^10.0.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "ts-polyfill": "^3.5.3"
   }
 }

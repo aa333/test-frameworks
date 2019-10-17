@@ -1,3 +1,5 @@
+import 'ts-polyfill'
+
 export interface ITodoData {
     enabled: boolean,
     name: string

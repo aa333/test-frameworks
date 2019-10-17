@@ -10,7 +10,7 @@ module.exports = (env, options) => {
   const config = {
     entry: {
       'reactRedux/index': './react/ReduxApp.tsx',
-      'reactRematch/index': './react/RematchApp.tsx',
+      'reactRematch/index': './react/RematchApp.tsx'
     },
     resolveLoader: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules']
@@ -58,6 +58,7 @@ module.exports = (env, options) => {
       new CopyWebpackPlugin([
         { from: 'index.html', to: 'reactRedux/index.html' },
         { from: 'index.html', to: 'reactRematch/index.html' },
+        { from: 'index.html', to: 'preactRedux/index.html' },
       ]),
     ]
   }
