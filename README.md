@@ -68,9 +68,9 @@ Webpack | Rollup
 
 
 ## Install and run
-npm i
+npm run init
 npm i -g npx
 
 в двух терминалах
 t1          t2  
-npx serve | npm run dev_wp
+npx serve | npm run build_all_dev
