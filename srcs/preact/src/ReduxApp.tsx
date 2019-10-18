@@ -1,6 +1,6 @@
+let timeStart = performance.now()
 import 'ts-polyfill'
 import { Component, render, h } from 'preact'
-import { Provider, connect } from 'preact-redux'
 import store, { AppState, asyncSubmit } from '../../react/src/reduxStore'
 import TODO from './Todo'
 import { IState, ITodoData, getHoursMinutesSecondsFromString } from '../../shared/initialState'
@@ -26,6 +26,10 @@ class App extends Component<IProps, { error?: string, }> {
         this.onSelectedItemChange = this.onSelectedItemChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
         this.onTimestampChange = this.onTimestampChange.bind(this)
+    }
+
+    componentDidMount() {
+        console.log("Rirst render complete, time:", performance.now() - timeStart)
     }
 
     onTodoChange(event: Event) {

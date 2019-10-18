@@ -6,9 +6,14 @@
   "scripts": {
     "serve": "serve",
     "init": "cd srcs/preact && npm i && cd ../react && npm i",
+    
     "build_all_dev": "npm run build_preact_dev && npm run build_react_dev",
     "build_preact_dev": "cd srcs/preact && npm run build_dev",
-    "build_react_dev": "cd srcs/react && npm run build_dev"
+    "build_react_dev": "cd srcs/react && npm run build_dev",
+
+    "build_all_prod": "npm run build_preact_prod && npm run build_react_prod",
+    "build_preact_prod": "cd srcs/preact && npm run build_prod",
+    "build_react_prod": "cd srcs/react && npm run build_prod"
   },
   "author": "",
   "license": "ISC",

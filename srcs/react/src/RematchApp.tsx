@@ -1,3 +1,4 @@
+let timeStart = performance.now()
 import 'ts-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -40,6 +41,10 @@ class App extends React.Component<IProps, { error?: string, }> {
 
   onSelectedItemChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.props.setSelectedItem(event.target.value)
+  }
+
+  componentDidMount() {
+    console.log("Rirst render complete, time:", performance.now() - timeStart)
   }
 
   onSubmit() {

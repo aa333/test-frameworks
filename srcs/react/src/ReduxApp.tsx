@@ -1,3 +1,4 @@
+let timeStart = performance.now()
 import 'ts-polyfill'
 import React, { Dispatch } from 'react'
 import ReactDOM from 'react-dom'
@@ -31,6 +32,10 @@ class App extends React.Component<IProps, { error?: string, }> {
 
   onTodoChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.props.todoChange(parseInt(event.target.dataset['id'] || '0'), event.target.checked)
+  }
+
+  componentDidMount() {
+    console.log("Rirst render complete, time:", performance.now() - timeStart)
   }
 
   onTimestampChange(event: React.ChangeEvent<HTMLInputElement>) {
