@@ -6,11 +6,9 @@
   "scripts": {
     "serve": "serve",
     "init": "cd srcs/preact && npm i && cd ../react && npm i",
-    
     "build_all_dev": "npm run build_preact_dev && npm run build_react_dev",
     "build_preact_dev": "cd srcs/preact && npm run build_dev",
     "build_react_dev": "cd srcs/react && npm run build_dev",
-
     "build_all_prod": "npm run build_preact_prod && npm run build_react_prod",
     "build_preact_prod": "cd srcs/preact && npm run build_prod",
     "build_react_prod": "cd srcs/react && npm run build_prod"
@@ -25,11 +23,16 @@
     "sass-loader": "^8.0.0",
     "serve": "^11.2.0",
     "style-loader": "^1.0.0",
+    "svelte-preprocess": "^3.1.2",
+    "svelte-ts-preprocess": "^1.1.3",
     "ts-loader": "^6.2.0",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^3.6.4",
     "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9",
     "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0"
   }
 }
