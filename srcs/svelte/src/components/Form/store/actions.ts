@@ -20,7 +20,6 @@ export const setIsRequest = (value: boolean): void => {
 }
 
 export const submitTime = async(valid: boolean, value: string): Promise<void> => {
-  console.log('valid', valid)
   if (valid) {
     setIsRequest(true);
 
