@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-export let time = writable<string>('1111');
+export let time = writable<string>('');
 
 export let submitedTime = writable<string>('');
 
