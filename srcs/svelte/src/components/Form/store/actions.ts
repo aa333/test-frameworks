@@ -3,7 +3,6 @@ import { getHoursMinutesSecondsFromString, delay } from '../../../../../shared/i
 
 export const setTime = (value: string): void => {
   time.set(value);
-  setIsValid(value);
 }
 
 export const setSubmitedTime = (value: string): void => {
@@ -15,13 +14,20 @@ export const setIsValid = (timeString: string): void => {
   isValid.set(isValidValue);
 }
 
-export const setIsRequest = (value: boolean): void => {
-  isRequest.set(value);
+export const toogleIsRequest = (): void => {
+  let request;
+  isRequest.subscribe(isRequestValue => request = isRequestValue);
+  isRequest.set(!request);
 }
 
-export const submitTime = async(valid: boolean, value: string): Promise<void> => {
+export const submitTime = async(value: string): Promise<void> => {
+  setIsValid(value);
+
+  let valid;
+  isValid.subscribe(isValidValue => valid = isValidValue);
+
   if (valid) {
-    setIsRequest(true);
+    toogleIsRequest();
 
     await delay(2000);
 
@@ -29,6 +35,6 @@ export const submitTime = async(valid: boolean, value: string): Promise<void> =>
 
     time.set('');
 
-    setIsRequest(false);
+    toogleIsRequest();
   }
 }

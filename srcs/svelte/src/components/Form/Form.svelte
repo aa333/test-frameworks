@@ -12,7 +12,7 @@
   }
 
   const handleSubmit = () => {
-    submitTime($isValid, $time);
+    submitTime($time);
   }
 
   let isLoad;
