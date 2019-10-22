@@ -15,7 +15,7 @@
     "build_preact_prod": "cd srcs/preact && npm run build_prod",
     "build_react_prod": "cd srcs/react && npm run build_prod",
     "build_vue_prod": "cd srcs/vue && npm run build",
-    "build_vue_class_prod": "cd srcs/vue-class && npm run build",
+    "build_vue_class_prod": "cd srcs/vue-class && npm run build"
   },
   "author": "",
   "license": "ISC",
