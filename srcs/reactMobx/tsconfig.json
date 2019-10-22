@@ -10,6 +10,7 @@
         "forceConsistentCasingInFileNames":true,
         "target": "es5",
         "jsx": "react",
+        "experimentalDecorators": true,
         "lib": [
             "dom",
             "dom.iterable",
