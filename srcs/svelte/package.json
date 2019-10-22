@@ -22,8 +22,9 @@
     "webpack-dev-server": "3.4.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
-    "build": "webpack"
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode=development --config=webpack.config.js",
+    "build_prod": "webpack --mode=production --config=webpack.config.js"
   },
   "author": "",
   "license": "ISC"
