@@ -22,7 +22,7 @@
   .todos {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 600px;
     overflow: auto;
   }
   .label {
