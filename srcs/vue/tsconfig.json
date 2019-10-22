@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
+    "target": "esnext",
+    "module": "esnext",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -9,26 +9,29 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "noImplicitAny": false,
+    "types": [
+      "webpack-env"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
     "lib": [
+      "esnext",
       "dom",
       "dom.iterable",
-      "es2015",
-      "es2016.array.include",
-      "es2017.object",
-      "es2017.string",
-      "es2018.asynciterable",
-      "es2018.promise",
-      "es2019.array",
-      "es2019.object",
-      "es2019.string",
-      "es2020.string",
-      "esnext"
+      "scripthost"
     ]
   },
   "include": [
-    "./src/**/*"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules"
