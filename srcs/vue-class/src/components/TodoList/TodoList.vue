@@ -45,7 +45,7 @@ export default class TodoList extends Vue {
     display: flex;
     flex-direction: column;
     max-width: 600px;
-    height: 500px;
+    height: 600px;
     overflow: auto;
   }
 </style>

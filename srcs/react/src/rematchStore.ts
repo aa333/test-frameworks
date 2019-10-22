@@ -58,5 +58,6 @@ const appState = store.getState()
 
 export type Store = typeof store
 export type AppState = typeof appState
+export type Dispatch = typeof store.dispatch
 
 export default store;
