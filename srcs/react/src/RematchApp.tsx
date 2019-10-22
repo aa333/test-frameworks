@@ -3,7 +3,7 @@ import 'ts-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider, connect } from 'react-redux'
-import store, { AppState } from './rematchStore'
+import store, { AppState, Dispatch } from './rematchStore'
 import TODO from './Todo'
 import { ITodoData, getHoursMinutesSecondsFromString } from '../../shared/initialState'
 import '../../shared/main.scss'
@@ -79,18 +79,15 @@ const mapStateToProps = ({ main: { time, selectedItem, items, todos, requestInFl
   return { time, selectedItem, items, todos, requestInFlight }
 }
 
-// NOTE: kinda hard to came up with correct typing here
-const mapDispatchToProps = (dispatch: any) => ({
-  submit: () => { dispatch({ type: 'main/submit' }) },
-  todoChange: (id: number, val: boolean) => { dispatch({ type: 'main/setTodo', payload: { id, val } }) },
-  setSelectedItem: (val: string) => { dispatch({ type: 'main/setSelectedItem', payload: val }) },
-  setTime: (val: string) => { dispatch({ type: 'main/setTime', payload: val }) }
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  submit: dispatch.main.submit,
+  todoChange: (id: number, val: boolean) => dispatch.main.setTodo({ id, val }),
+  setSelectedItem: dispatch.main.setSelectedItem,
+  setTime: dispatch.main.setTime
 })
 
-const AppConnected = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+// @ts-ignore
+const AppConnected = connect(mapStateToProps, mapDispatchToProps)(App)
 
 const rootElement = document.getElementById("mount")
 ReactDOM.render(
