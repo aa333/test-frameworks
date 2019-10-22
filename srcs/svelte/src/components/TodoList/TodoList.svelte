@@ -32,9 +32,4 @@
   .active {
     background-color: orange;
   }
-  .selected {
-    display: flex;
-    flex-direction: column;
-    color: orange;
-  }
 </style>
