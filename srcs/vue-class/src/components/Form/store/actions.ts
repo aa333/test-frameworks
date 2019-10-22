@@ -9,14 +9,10 @@ export const setTime = (
   { commit, dispatch }: ActionContext<IState, RootState>,
   time: string
 ): void => {
-  const isValid = getHoursMinutesSecondsFromString(time);
-
   commit({
     type: SET_TIME,
     payload: time
   })
-
-  dispatch('setValidation', !!isValid);
 }
 
 export const setValidation = (
@@ -32,12 +28,15 @@ export const setValidation = (
 export const sumbitTime = async(
   { commit, dispatch, state }: ActionContext<IState, RootState>
 ): Promise<void> => {
-  if (state.isValid) {
-    dispatch('setRequest');
+  const isValid = getHoursMinutesSecondsFromString(state.time);
+  dispatch('setValidation', !!isValid);
+
+  if (isValid) {
+    dispatch('toggleRequest');
 
     await delay(2000);
 
-    dispatch('setRequest');
+    dispatch('toggleRequest');
 
     commit({
       type: SUBMIT_TIME,
@@ -46,6 +45,6 @@ export const sumbitTime = async(
   }
 }
 
-export const setRequest = ({ commit }: ActionContext<IState, RootState>): void => {
+export const toggleRequest = ({ commit }: ActionContext<IState, RootState>): void => {
   commit({ type: SET_REQUEST })
 }

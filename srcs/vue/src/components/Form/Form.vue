@@ -29,9 +29,9 @@ import { mapState, mapActions } from 'vuex';
 
 export default Vue.extend({
   computed: mapState({
-    time: ({ form }): string => form.time,
-    isValid: ({ form }): boolean => form.isValid,
-    isRequestLoad: ({ form }): boolean => form.isRequestLoad,
+    time: ({ form }) => form.time,
+    isValid: ({ form }) => form.isValid,
+    isRequestLoad: ({ form }) => form.isRequestLoad,
 
     buttonText (): string {
       return this.isRequestLoad ? 'Processing' : 'Submit'
@@ -39,7 +39,6 @@ export default Vue.extend({
   }),
   methods: {
     handleChange (event) {
-      console.log('this', this.$store);
       this.setTime(event.target.value)
     },
     ...mapActions(['setTime', 'submitTime'])

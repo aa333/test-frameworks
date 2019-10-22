@@ -6,18 +6,13 @@ import { getHoursMinutesSecondsFromString, delay } from '../../../../../shared/i
 import { RootState } from '../../../store';
 
 export const setTime = (
-  { commit, dispatch }: ActionContext<IState, RootState>,
+  { commit }: ActionContext<IState, RootState>,
   time: string
 ): void => {
-  console.log('time', time)
-  const isValid = getHoursMinutesSecondsFromString(time);
-
   commit({
     type: SET_TIME,
     payload: time
   })
-
-  dispatch('setValidation', !!isValid);
 }
 
 export const setValidation = (
@@ -33,13 +28,15 @@ export const setValidation = (
 export const submitTime = async(
   { commit, dispatch, state }: ActionContext<IState, RootState>
 ): Promise<void> => {
-  console.log('state', state)
-  if (state.isValid) {
-    dispatch('setRequest');
+  const isValid = getHoursMinutesSecondsFromString(state.time);
+  dispatch('setValidation', !!isValid);
+
+  if (isValid) {
+    dispatch('toggleRequest');
 
     await delay(2000);
 
-    dispatch('setRequest');
+    dispatch('toggleRequest');
 
     commit({
       type: SUBMIT_TIME,
@@ -48,6 +45,6 @@ export const submitTime = async(
   }
 }
 
-export const setRequest = ({ commit }: ActionContext<IState, RootState>): void => {
+export const toggleRequest = ({ commit }: ActionContext<IState, RootState>): void => {
   commit({ type: SET_REQUEST })
 }
