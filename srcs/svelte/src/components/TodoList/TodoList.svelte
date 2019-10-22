@@ -18,12 +18,6 @@
   {/each}
 </div>
 
-<div class="selected">
-  {#each $selectedTodos as item}
-    <span>{item}</span>
-  {/each}
-</div>
-
 <style>
   .todos {
     display: flex;
