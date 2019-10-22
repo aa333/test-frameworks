@@ -10,9 +10,10 @@
     "build_preact_dev": "cd srcs/preact && npm run build_dev",
     "build_react_dev": "cd srcs/react && npm run build_dev",
     "build_svelte_dev": "cd srcs/svelte && npm run build",
-    "build_all_prod": "npm run build_preact_prod && npm run build_react_prod",
+    "build_all_prod": "npm run build_preact_prod && npm run build_react_prod && npm run build_svelte_prod",
     "build_preact_prod": "cd srcs/preact && npm run build_prod",
-    "build_react_prod": "cd srcs/react && npm run build_prod"
+    "build_react_prod": "cd srcs/react && npm run build_prod",
+    "build_svelte_prod": "cd srcs/svelte && npm run build_prod"
   },
   "author": "",
   "license": "ISC",
