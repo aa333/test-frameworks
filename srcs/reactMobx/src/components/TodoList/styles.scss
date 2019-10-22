@@ -1,0 +1,14 @@
+.todo {
+  height: 600px;
+  width: 600px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+.todo-item {
+  padding: 5px;
+  margin: 5px 0;
+}
+.selected {
+  background-color: orange;
+}

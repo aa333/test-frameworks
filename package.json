@@ -5,15 +5,15 @@
   "main": "index.js",
   "scripts": {
     "serve": "serve",
-    "init": "cd srcs/preact && npm i && cd ../react && npm i",
-    
-    "build_all_dev": "npm run build_preact_dev && npm run build_react_dev",
+    "init": "cd srcs/preact && npm i && cd ../react && npm i && cd ../reactMobx && npm i",
+    "build_all_dev": "npm run build_preact_dev && npm run build_react_dev && npm run build_reactMobx_dev",
     "build_preact_dev": "cd srcs/preact && npm run build_dev",
     "build_react_dev": "cd srcs/react && npm run build_dev",
-
-    "build_all_prod": "npm run build_preact_prod && npm run build_react_prod",
+    "build_reactMobx_dev": "cd srcs/reactMobx && npm run build",
+    "build_all_prod": "npm run build_preact_prod && npm run build_react_prod && npm run build_reactMobx_prod",
     "build_preact_prod": "cd srcs/preact && npm run build_prod",
-    "build_react_prod": "cd srcs/react && npm run build_prod"
+    "build_react_prod": "cd srcs/react && npm run build_prod",
+    "build_reactMobx_prod": "cd srcs/reactMobx && npm run build_prod"
   },
   "author": "",
   "license": "ISC",
