@@ -15,9 +15,7 @@ export const setIsValid = (timeString: string): void => {
 }
 
 export const toogleIsRequest = (): void => {
-  let request;
-  isRequest.subscribe(isRequestValue => request = isRequestValue);
-  isRequest.set(!request);
+  isRequest.update(isRequestValue => !isRequestValue);
 }
 
 export const submitTime = async(value: string): Promise<void> => {
